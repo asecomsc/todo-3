@@ -1,3 +1,15 @@
+function miSave() {
+$.ajax("http://localhost:3000/data", function(data, status){
+	for (var key in data) {
+		var newLi = $('<li>' + data[key].descr + '</li>');
+		newLi.on('click', function() {
+			$(this).remove(); 
+		});
+		$('ul').append(newLi); 		
+	}
+});
+}
+
 function miLoad() {
 $.get("http://localhost:3000/data", function(data, status){
 	for (var key in data) {

@@ -1,15 +1,23 @@
 var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database('sql.db');
-
 var express = require('express');
 var restapi = express();
+
+var bodyParser = require("body-parser");
+restapi.use(bodyParser.urlencoded({ extended: false }));
+restapi.use(bodyParser.json());
+
 restapi.use(express.static('public'));
 
 restapi.get('/data', function(req, res){
     db.all("SELECT descr FROM tareas", function(err, rows){
         res.json(rows);
-		console.log(rows);
     });
+});
+
+restapi.post('/data', function(req, res){
+	console.log(req.body);
+	res.end();
 });
 
 restapi.listen(3000);
