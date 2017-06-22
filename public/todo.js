@@ -1,3 +1,15 @@
+function miLoad() {
+$.get("http://localhost:3000/data", function(data, status){
+	for (var key in data) {
+		var newLi = $('<li>' + data[key].descr + '</li>');
+		newLi.on('click', function() {
+			$(this).remove(); 
+		});
+		$('ul').append(newLi); 		
+	}
+});
+}
+
 function miShow() {
     $("li").each(function(){
         alert($(this).text())
@@ -10,7 +22,7 @@ $(document).ready(function() {
             var newTask = $('#task').val();
             var newLi = $('<li>' + newTask + '</li>');
             newLi.on('click', function() {
-            		$(this).remove(); // miShow fixed
+            		$(this).remove(); 
             });
             $('ul').append(newLi); 
             $('#task').val('');
