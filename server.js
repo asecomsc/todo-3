@@ -3,6 +3,7 @@ var db = new sqlite3.Database('sql.db');
 
 var express = require('express');
 var restapi = express();
+restapi.use(express.static('public'));
 
 restapi.get('/data', function(req, res){
     db.all("SELECT descr FROM tareas", function(err, rows){
@@ -13,4 +14,4 @@ restapi.get('/data', function(req, res){
 
 restapi.listen(3000);
 console.log("Submit GET or POST to http://localhost:3000/data");
-//db.close();
+
