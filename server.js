@@ -10,17 +10,20 @@ restapi.use(bodyParser.json());
 restapi.use(express.static('public'));
 
 restapi.get('/data', function(req, res){
-    db.all("SELECT descr FROM tareas", function(err, rows){
-        res.json(rows);
+    db.all("SELECT * FROM tareas ORDER BY id", function(err, rows){
+		res.send(rows);
     });
 });
 
 restapi.post('/data', function(req, res){
-	console.log(req.body);
+db.serialize(function() {	// batallé mucho porque no estaba usando esta instruccion
+	db.run("DELETE FROM tareas");
 	var elarr = req.body.elArr;
 	for (var key in elarr) {
-		console.log(elarr[key]);
+		sql = "INSERT INTO tareas (descr) VALUES('" + elarr[key] + "')";
+		db.run(sql);
 	}
+});	
 	res.end();
 });
 
