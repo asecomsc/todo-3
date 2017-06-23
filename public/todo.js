@@ -1,8 +1,12 @@
 function miSave() {
-	miarr = ["2","4","5"]
-	$.ajax({type:'POST', url:'http://localhost:3000/data',
-			data:JSON.stringify({ elArr: miarr }), contentType:"application/json"
-		   });
+	var miarr = [];
+    $("li").each(function(){
+        miarr.push($(this).text());
+    });	
+	$.ajax({
+		type:'POST', url:'http://localhost:3000/data',
+	    data:JSON.stringify({ elArr: miarr }), contentType:"application/json"
+	});
 }
 
 function miLoad() {
