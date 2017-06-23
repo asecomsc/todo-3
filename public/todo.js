@@ -1,7 +1,7 @@
 function miSave() {
-	data = { miarr:["2","4","5"] };
+	miarr = ["2","4","5"]
 	$.ajax({type:'POST', url:'http://localhost:3000/data',
-			data:JSON.stringify(data), contentType:"application/json"
+			data:JSON.stringify({ elArr: miarr }), contentType:"application/json"
 		   });
 }
 

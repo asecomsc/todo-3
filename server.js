@@ -17,6 +17,10 @@ restapi.get('/data', function(req, res){
 
 restapi.post('/data', function(req, res){
 	console.log(req.body);
+	var elarr = req.body.elArr;
+	for (var key in elarr) {
+		console.log(elarr[key]);
+	}
 	res.end();
 });
 
