@@ -7,6 +7,7 @@ var bodyParser = require("body-parser");
 restapi.use(bodyParser.urlencoded({ extended: false }));
 restapi.use(bodyParser.json());
 
+restapi.set('port', (process.env.PORT || 3000));
 restapi.use(express.static('public'));
 
 restapi.get('/data', function(req, res){
@@ -27,6 +28,9 @@ db.serialize(function() {	// batallé mucho porque no estaba usando esta instruc
 	res.end();
 });
 
-restapi.listen(3000);
+restapi.listen(restapi.get('port'), function() {
+        console.log('Web app running on port', restapi.get('port'));
+});
+
 console.log("Submit GET or POST to http://localhost:3000/data");
 
