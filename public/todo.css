@@ -2,18 +2,16 @@
      padding: 20px;
      margin-top: 40px;
      margin-left: 40px;
-     background-color: white;
+     background-color: Black;
      width: 300px;
      height: 400px;
 	 float: left;
 }
-body {
-	 background: #ccc;
-}
+body  {background-color: Black;}
 li {
 	font-weight: bold;
 	font-family: Arial 14px;
-	color: grey;
+	color: white;
 	padding: 1px;
 	border-bottom: 1px solid DeepSkyBlue;
 	list-style: none;

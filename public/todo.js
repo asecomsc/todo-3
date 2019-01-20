@@ -5,13 +5,13 @@ function miSave() {
     });	
 	console.log({ elArr: miarr });
 	$.ajax({
-		type:'POST', url:'http://10.0.0.56:3000/data',
+		type:'POST', url:'http://192.168.0.2:3000/data',
 	    data:JSON.stringify({ elArr: miarr }), contentType:"application/json"
 	});
 }
 
 function miLoad() {
-	$.get("http://10.0.0.56:3000/data", function(data, status){
+	$.get("http://192.168.0.2:3000/data", function(data, status){
 		for (var key in data) {
 			var newLi = $('<li>' + data[key].descr + '</li>');
 			newLi.on('click', function() {

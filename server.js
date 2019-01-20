@@ -32,5 +32,5 @@ restapi.listen(restapi.get('port'), function() {
         console.log('Web app running on port', restapi.get('port'));
 });
 
-console.log("Submit GET or POST to http://localhost:3000/data");
+console.log("Submit GET or POST to http://192.168.0.2:3000/default.html");
 
