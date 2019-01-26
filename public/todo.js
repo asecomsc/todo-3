@@ -1,4 +1,5 @@
 function miSave() {
+	miObj.remove();     // se tiene que dar save cada vez que se use fadeOut()
 	var miarr = [];
     $("li").each(function(){
         miarr.push($(this).text());
@@ -15,9 +16,10 @@ function miLoad() {
 		for (var key in data) {
 			var newLi = $('<li>' + data[key].descr + '</li>');
 			newLi.on('click', function() {
-				$(this).remove(); 
+				miObj = $(this);
+				$(this).fadeOut(1000);
 			});
-			$('ul').append(newLi); 		
+			$('ol').append(newLi); 		
 		}
 	});
 }
@@ -28,7 +30,9 @@ function miShow() {
     });
 }
 
+
 $(document).ready(function() {
+	var chingao;
     $('form').submit(function() {
         if ($('#task').val() !== '') {
             var newTask = $('#task').val();
@@ -36,11 +40,11 @@ $(document).ready(function() {
             newLi.on('click', function() {
             		$(this).remove(); 
             });
-            $('ul').append(newLi); 
+            $('ol').append(newLi); 
             $('#task').val('');
             return false; 
         }
-    });
-    $('ul').sortable(); 
+    });	
+    $('ol').sortable(); 
 	miLoad();
 });

@@ -1,21 +1,23 @@
 #divPend {
-     padding: 20px;
-     margin-top: 40px;
-     margin-left: 40px;
-     background-color: Black;
-     width: 300px;
-     height: 400px;
+     //padding: 5px;
+     margin-top: 15px;
+     //margin-left: 10px;
+	 background-color: LightGoldenRodYellow;     
+     //width: 300px;
+     //height: 400px;
 	 float: left;
 }
-body  {background-color: Black;}
+body  {background-color: LightGoldenRodYellow ;} 
 li {
-	font-weight: bold;
-	font-family: Arial 14px;
-	color: white;
-	padding: 1px;
-	border-bottom: 1px solid DeepSkyBlue;
-	list-style: none;
-	margin-right: 40px;
+	//font-size: 55px;
+	font-family: sans-erif;
+	//font-weight: bold;
+	color: brown;
+	//padding: 5px;
+	border-bottom: thin solid silver;
+	//list-style: none;
+	//margin-right: 5px;
+	margin-top: 7px;
 }
-h1 { text-align: center; }
-form { margin-left: 67px;}
+//input {	font-size: 35px;}
+//form { margin-left: 10px;}
