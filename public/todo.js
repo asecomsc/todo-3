@@ -1,5 +1,5 @@
 function miSave() {
-	miObj.remove();     // se tiene que dar save cada vez que se use fadeOut()
+	if (typeof(miObj) !== "undefined") {miObj.remove();}     // need to save for every <li>.click
 	var miarr = [];
     $("li").each(function(){
         miarr.push($(this).text());
