@@ -1,12 +1,11 @@
-#divPend { margin-top: 15px;
-		   background-color: LightGoldenRodYellow;     
-		   float: left;  }
+#divPend {  background-color: LightGoldenRodYellow;     
+		     }
 body { background-color: LightGoldenRodYellow;} 
 li {	font-family: sans-erif;
 	color: brown;
 	border-bottom: thin solid silver;
 	margin-top: 7px;  
 }
-input {  margin-left: 40px;
-	   margin-bottom: 10px; }
+input {margin-left: 40px;}
+
 

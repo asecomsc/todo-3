@@ -21,29 +21,19 @@ function miLoad() {
 			$('ol').append(newLi); 		
 		}
 	});
+	console.log('L');
 }
-
-function miShow() {
-    $("li").each(function(){
-        console.log($(this).text())
-    });
-	console.log('-------------');
-}
-
 
 $(document).ready(function() {
-    $('form').submit(function() {
-        if ($('#task').val() !== '') {
-            var newTask = $('#task').val();
-            var newLi = $('<li>' + newTask + '</li>');
-            newLi.on('click', function() {
-            		$(this).remove(); 
-            });
-            $('ol').append(newLi); 
-            $('#task').val('');
-            return false; 
-        }
-    });	
-    $('ol').sortable(); 
+	$(document).on('keypress',function(e) {
+		if(e.which == 13) {
+			//alert('You pressed enter!');
+			console.log($('#task').text());
+			//return false;
+			event.preventDefault();
+		}
+	});
+    $('ol').sortable();
+	console.log('.>');
 	miLoad();
 });
