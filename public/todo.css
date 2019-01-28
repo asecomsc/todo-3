@@ -1,23 +1,12 @@
-#divPend {
-     //padding: 5px;
-     margin-top: 15px;
-     //margin-left: 10px;
-	 background-color: LightGoldenRodYellow;     
-     //width: 300px;
-     //height: 400px;
-	 float: left;
-}
-body  {background-color: LightGoldenRodYellow ;} 
-li {
-	//font-size: 55px;
-	font-family: sans-erif;
-	//font-weight: bold;
+#divPend { margin-top: 15px;
+		   background-color: LightGoldenRodYellow;     
+		   float: left;  }
+body { background-color: LightGoldenRodYellow;} 
+li {	font-family: sans-erif;
 	color: brown;
-	//padding: 5px;
 	border-bottom: thin solid silver;
-	//list-style: none;
-	//margin-right: 5px;
-	margin-top: 7px;
+	margin-top: 7px;  
 }
-//input {	font-size: 35px;}
-//form { margin-left: 10px;}
+input {  margin-left: 40px;
+	   margin-bottom: 10px; }
+

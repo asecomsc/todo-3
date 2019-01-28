@@ -1,10 +1,9 @@
 function miSave() {
-	if (typeof(miObj) !== "undefined") {miObj.remove();}     // need to save for every <li>.click
+	if (typeof(miObj) !== "undefined") {miObj.remove();} // need to save for every <li>.click
 	var miarr = [];
     $("li").each(function(){
         miarr.push($(this).text());
     });	
-	console.log({ elArr: miarr });
 	$.ajax({
 		type:'POST', url:'http://192.168.0.2:3000/data',
 	    data:JSON.stringify({ elArr: miarr }), contentType:"application/json"
@@ -26,13 +25,13 @@ function miLoad() {
 
 function miShow() {
     $("li").each(function(){
-        alert($(this).text())
+        console.log($(this).text())
     });
+	console.log('-------------');
 }
 
 
 $(document).ready(function() {
-	var chingao;
     $('form').submit(function() {
         if ($('#task').val() !== '') {
             var newTask = $('#task').val();
