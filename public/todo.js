@@ -1,4 +1,4 @@
-function miSave() {
+function fnSave() { 
 	if (typeof(miObj) !== "undefined") {miObj.remove();} // need to save for every <li>.click
 	var miarr = [];
     $("li").each(function(){
@@ -27,12 +27,21 @@ function miLoad() {
 $(document).ready(function() {
 	$(document).on('keypress',function(e) {
 		if(e.which == 13) {
-			//alert('You pressed enter!');
-			console.log($('#task').text());
-			//return false;
-			event.preventDefault();
+	        if ($('#task').val() !== '') {
+				var newTask = $('#task').val();
+				var newLi = $('<li>' + newTask + '</li>');
+				newLi.on('click', function() {
+					miObj = $(this);
+					$(this).fadeOut(1000);
+				});
+				$('ol').append(newLi); 
+				$('#task').val('');
+			}
 		}
-	});
+	});	
+	$("#miSave").click(function(){
+		fnSave();
+	});	
     $('ol').sortable();
 	console.log('.>');
 	miLoad();
