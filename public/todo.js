@@ -21,7 +21,6 @@ function miLoad() {
 			$('ol').append(newLi); 		
 		}
 	});
-	console.log('L');
 }
 
 $(document).ready(function() {
@@ -43,6 +42,5 @@ $(document).ready(function() {
 		fnSave();
 	});	
     $('ol').sortable();
-	console.log('.>');
 	miLoad();
 });
