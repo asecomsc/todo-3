@@ -25,7 +25,7 @@ function miLoad() {
 
 function mos() {  // mostrar, esta funcion es para ser llamada desde chrome-console
 	$('li').each(function(){
-   console.log($(this).text())
+   console.log($(this).text());
 	})    
 	console.log('----------');
 }
