@@ -1,13 +1,10 @@
-function miSave() {
-	if (typeof(miObj) !== "undefined") {miObj.remove();} // need to save for every <li>.click
+function fnSave() { 
 	var miarr = [];
     $("li").each(function(){
         miarr.push($(this).text());
     });	
-	$.ajax({
-		type:'POST', url:'http://192.168.0.2:3000/data',
-	    data:JSON.stringify({ elArr: miarr }), contentType:"application/json"
-	});
+	$.ajax({ type:'POST', url:'http://192.168.0.2:3000/data',
+	         data:JSON.stringify({ elArr: miarr }), contentType:"application/json" });
 }
 
 function miLoad() {
@@ -15,35 +12,34 @@ function miLoad() {
 		for (var key in data) {
 			var newLi = $('<li>' + data[key].descr + '</li>');
 			newLi.on('click', function() {
-				miObj = $(this);
-				$(this).fadeOut(1000);
+				    $(this).fadeOut(1000, function(){
+					   $(this).remove();
+					});
 			});
 			$('ol').append(newLi); 		
 		}
 	});
 }
 
-function miShow() {
-    $("li").each(function(){
-        console.log($(this).text())
-    });
-	console.log('-------------');
-}
-
-
 $(document).ready(function() {
-    $('form').submit(function() {
-        if ($('#task').val() !== '') {
-            var newTask = $('#task').val();
-            var newLi = $('<li>' + newTask + '</li>');
-            newLi.on('click', function() {
-            		$(this).remove(); 
-            });
-            $('ol').append(newLi); 
-            $('#task').val('');
-            return false; 
-        }
-    });	
-    $('ol').sortable(); 
+	$(document).on('keypress',function(e) {
+		if(e.which == 13) {
+	        if ($('#task').val() !== '') {
+				var newTask = $('#task').val();
+				var newLi = $('<li>' + newTask + '</li>');
+				newLi.on('click', function() {
+				    $(this).fadeOut(1000, function(){
+					   $(this).remove();
+					});
+				});
+				$('ol').append(newLi); 
+				$('#task').val('');
+			}
+		}
+	});	
+	$("#miSave").click(function(){
+		fnSave();
+	});	
+    $('ol').sortable();
 	miLoad();
 });
